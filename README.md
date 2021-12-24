@@ -3,7 +3,7 @@
 ## Overview
 a basic weather app
 
-## What i use
+## sources and method
 here i used the get and post methods to manipulate the api key that i got from openweathermap.com and i tested it in my local server that i made using express and nodeJS
 
 ## Instructions
