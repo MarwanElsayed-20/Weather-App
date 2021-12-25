@@ -11,7 +11,7 @@ function performAction (e) {
   let feeling = document.getElementById("feelings").value;
   // Create a new date instance dynamically with JS
   let d = new Date();
-  let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
+  let newDate = d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
   // our API call
   getWeather('/weatherData')
   .then(function(data){
@@ -19,7 +19,7 @@ function performAction (e) {
     postData('/addWeather', {
       temperature: data.main.temp,
       date: newDate,
-      userResponse: feeling
+      feelings: feeling
     })
     //update our ui dynamically
     retrieveData();
@@ -54,16 +54,13 @@ const getWeather = async (url) => {
 }
 //dynamic ui
 const retrieveData = async () => {
- const request = await fetch('/all');
+ const request = await fetch('/weatherData');
  try {
   // Transform into JSON
   const allData = await request.json()
-  for(let i = 0; i < allData.length; i++){
-    // Write updated data to DOM elements
-    document.getElementById('temp').innerHTML = Math.round(allData[i].temperature)+ 'degrees';
-    document.getElementById('content').innerHTML = allData[i].userResponse;
-    document.getElementById("date").innerHTML =allData[i].date;
-  }
+  document.getElementById('date').innerHTML = allData.date;
+  document.getElementById('temp').innerHTML = Math.round(allData.temperature)+ 'degrees';
+  document.getElementById('content').innerHTML = allData.feelings;
  }
  catch(error) {
    console.log("error", error);
