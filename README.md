@@ -1,10 +1,11 @@
 # Weather-Journal App Project
 
 ## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
+a basic weather app
+
+## sources and method
+here i used the get and post methods to manipulate the api key that i got from openweathermap.com and i tested it in my local server that i made using express and nodeJS
 
 ## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+you will be asked to enter the zip code of the city you want to know the weather in and your how you feel and the output will be date and temprature and your own feeling
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
